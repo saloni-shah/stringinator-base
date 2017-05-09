@@ -44,10 +44,14 @@ const truncateLongItems = function(obj, maxLength) {
 };
 
 const countChars = function(str) {
-  const countChar = {};
+  /*const countChar = {};
   _.each(str, item => 
     (countChar[item]) ? countChar[item]++ : countChar[item] = 1 );
-  return countChar;
+  return countChar;*/
+  return _.reduce(str, (acc, value) => {
+    (acc[value]) ? acc[value]++ : acc[value] = 1;
+    return acc;
+  },{});
 };
 
 const dedup = function(str) {
